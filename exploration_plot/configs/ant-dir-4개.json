@@ -1,0 +1,154 @@
+
+
+
+{
+    "env_name": "ant-dir",
+    "exp_name": "태스크4개/exp6-onpolcsamecycleloss증가,beta2,f_rlO(0.05),cycleO,ganO(w,5),done조건있는것,envstep,psi_rl버퍼,bisim(r*1,bi*3),rscale5",
+
+
+
+    "latent_size":10,
+
+    "seed": 1234,
+
+    "util_params":{
+        "use_gpu":true,
+        "gpu_id":5
+    },
+
+
+    "n_train_tasks": 4,
+    "n_eval_tasks": 4,
+    "n_indistribution_tasks":0,
+    "n_tsne_tasks": 8,
+    "n_train_tsne_tasks": 4,
+    "n_test_tsne_tasks": 4,
+    "env_params": {
+        "num_train_tasks": 4,
+        "eval_tasks_list": [],
+        "indistribution_train_tasks_list": [],
+        "TSNE_tasks_list": [],
+        "ood_type": "inter",
+        "done_flase":false, 
+        "use_ref_task": 0,
+        "expert": false
+    },
+
+
+    "algo_params": {
+
+        "recon_coeff":200,        
+        "onpol_c_coeff":200,
+        "same_c_coeff":200,
+        "cycle_coeff":1,
+
+
+        "env_name":"ant-dir-4개",                
+        "algorithm":"ours", 
+        "ood":"4개", 
+
+        "sa_perm":false,
+
+        "use_full_interpolation":true,
+        "num_dirichlet_tasks":2,
+        "num_fake_tasks":2, 
+        "beta": 2,
+
+        "fakesample_cycle":true,
+        "use_decrease_mask":false,
+        "decrease_rate":1,
+
+        "use_gan": true,
+        "gan_type" : "wgan",
+        "wgan_lambda": 5,
+        "gen_freq": 5,
+
+        "offpol_ctxt_sampling_buffer":"rl",
+        "make_prior_to_rl": true,
+        "use_context_buffer": 1,
+        "clear_enc_buffer":0,
+        "prior_enc_buffer_size": 20000,
+        "online_enc_buffer_size": 1,
+
+
+        "use_inter_samples" : true,
+        "fakesample_rl_tran_batch_size": 256,
+        "inter_update_coeff" : 0.05,
+
+        "sample_dist_coeff":3,
+        "r_dist_coeff":1,
+
+        "use_decoder_next_state":false,
+        "use_next_state_bisim":false,
+
+
+        "c_buffer_size":10000,
+        "c_kl_lambda":0.1,
+        "c_distri_vae_train_freq": 2,
+        "use_c_dist_clear":true,
+
+        "use_z_autoencoder":false,
+
+
+
+
+
+        "soft_target_tau":0.005,
+        "policy_lr":0.0005,
+        "qf_lr":0.0005,
+        "vf_lr":0.0005,
+
+        "use_next_obs_in_context":false,
+
+        "num_iterations":10000,
+
+        "meta_batch": 4,
+
+        "reward_scale": 5,
+
+
+        "z_dist_compute_method": "euclidian",
+
+        "same_task_loss_pow":1,
+
+
+
+        "pretrain_steps": 5000,
+        "num_meta_train_steps": 500,
+        "num_train_steps_per_itr": 4000,
+        "num_initial_steps": 2000,
+
+
+
+        "use_W": 0,
+        "target_enc_tau": 0.005,
+
+        "enc_q_recover_train": 0,
+        "use_z_contrastive": 0,
+        "use_q_contrastive": false,
+        "q_embed_size": 1,
+
+        "use_information_bottleneck" : 1,
+        "kl_lambda" : 0,
+
+        "num_tsne_evals": 30,
+        "tsne_plot_freq" : 20,
+        "tsne_perplexity" : [50, 50],
+
+        "num_tasks_sample":4,
+
+
+
+
+        "num_steps_prior": 400,
+        "num_steps_posterior": 0,
+        "num_extra_rl_steps_posterior": 600,
+        "num_evals": 1,
+        "num_steps_per_eval": 600,
+        "num_exp_traj_eval": 2,
+
+        "batch_size": 256,
+        "embedding_batch_size": 128,
+        "embedding_mini_batch_size": 128
+    }
+}

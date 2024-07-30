@@ -1,0 +1,267 @@
+{
+  "algo_params": {
+    "algorithm": "ours",
+    "alpha_net_weight_decay": 0.0,
+    "batch_size": 256,
+    "beta": 2.0,
+    "bisim_coeff": 50,
+    "bisim_penalty_coeff": 1.0,
+    "bisim_sample_batchsize": 256,
+    "bisim_transition_sample": "rl",
+    "c_buffer_size": 500,
+    "c_distri_vae_train_freq": 2,
+    "c_kl_lambda": 0.05,
+    "c_off_all_element_sampling": false,
+    "c_off_batch_size": 32,
+    "c_off_buffer_length": 5000,
+    "clear_enc_buffer": 0,
+    "close_method": "",
+    "closest_task_method": "total",
+    "coff_buffer_fix_ep": 0,
+    "compute_overestimation_bias": false,
+    "context_lr": 0.0003,
+    "cycle_coeff": 10,
+    "decrease_rate": 1,
+    "dirichlet_sample_freq_for_exploration": 20,
+    "discount": 0.99,
+    "dump_eval_paths": false,
+    "embedding_batch_size": 128,
+    "embedding_mini_batch_size": 128,
+    "enc_q_recover_train": 0,
+    "entropy_coeff": 1.0,
+    "env_name": "ant-goal-inter",
+    "eval_generator": false,
+    "expert": false,
+    "fakesample_cycle": true,
+    "fakesample_rl_tran_batch_size": 256,
+    "gan_type": "wgan",
+    "gen_coeff": 1.0,
+    "gen_freq": 5,
+    "inter_update_coeff": 1,
+    "kl_lambda": 0,
+    "make_prior_to_rl": true,
+    "max_path_length": 200,
+    "meta_batch": 16,
+    "next_obs_beta": 1.0,
+    "num_dirichlet_tasks": 3,
+    "num_evals": 1,
+    "num_exp_traj_eval": 2,
+    "num_extra_rl_steps_posterior": 600,
+    "num_fake_tasks": 5,
+    "num_initial_steps": 2000,
+    "num_iterations": 10000,
+    "num_meta_train_steps": 1000,
+    "num_steps_per_eval": 1000,
+    "num_steps_posterior": 0,
+    "num_steps_prior": 800,
+    "num_tasks_sample": 10,
+    "num_train_steps_per_itr": 1000,
+    "num_tsne_evals": 30,
+    "offpol_c_coeff": 100,
+    "offpol_ctxt_sampling_buffer": "rl",
+    "online_enc_buffer_size": 1,
+    "onpol_c_coeff": 100,
+    "ood": "inter",
+    "optimizer": "adam",
+    "plot_beta_area": true,
+    "plot_wide_tsne": false,
+    "policy_lr": 0.0005,
+    "pretrain_steps": 5000,
+    "pretrained_model_path": "pretrained/antgoal-0728",
+    "prior_enc_buffer_size": 20000,
+    "psi_aux_vae_beta": 2.0,
+    "q_embed_size": 1,
+    "q_reg_coeff": 1.0,
+    "qf_lr": 0.0005,
+    "r_dist_coeff": 1,
+    "recon_coeff": 200,
+    "recurrent": false,
+    "reward_scale": 5.0,
+    "rewards_beta": 1.0,
+    "sa_perm": false,
+    "same_c_coeff": 200,
+    "same_task_loss_pow": 1,
+    "sample_dist_coeff": 1,
+    "sample_reg_method": "",
+    "seed": 4905,
+    "soft_target_tau": 0.005,
+    "sparse_rewards": false,
+    "target_enc_tau": 0.005,
+    "target_entropy_coeff": 1.0,
+    "tr_dist_coeff": 1,
+    "tsne_perplexity": [
+      50,
+      50
+    ],
+    "tsne_plot_freq": 20,
+    "update_post_train": 1,
+    "use_W": 0,
+    "use_auto_entropy": false,
+    "use_c_dist_clear": true,
+    "use_c_off_rl": false,
+    "use_c_vae": false,
+    "use_closest_task": false,
+    "use_context_buffer": 1,
+    "use_cycle_detach": false,
+    "use_decoder_next_state": false,
+    "use_decrease_mask": false,
+    "use_episodic_online_buffer": true,
+    "use_fake_value_bound": false,
+    "use_fakesample_representation": false,
+    "use_first_samples_for_bisim_samples": true,
+    "use_full_interpolation": true,
+    "use_gan": true,
+    "use_index_rl": false,
+    "use_information_bottleneck": 1,
+    "use_inter_samples": false,
+    "use_latent_in_disc": true,
+    "use_new_batch_for_fake": true,
+    "use_next_obs_Q_reg": false,
+    "use_next_obs_beta": false,
+    "use_next_obs_in_context": false,
+    "use_next_state_bisim": false,
+    "use_penalty": false,
+    "use_q_contrastive": false,
+    "use_rewards_beta": false,
+    "use_sample_reg": false,
+    "use_state_noise": false,
+    "use_target_c_dec": false,
+    "use_z_autoencoder": false,
+    "use_z_contrastive": 0,
+    "vf_lr": 0.0005,
+    "wandb_group": "",
+    "wandb_project": "\uae40\uc815\ubaa8_metaRL_new4",
+    "wgan_lambda": 5,
+    "which_sac_file": "sac_revised",
+    "wide_exp": false,
+    "z_dist_compute_method": "euclidian"
+  },
+  "env_name": "ant-goal",
+  "env_params": {
+    "TSNE_tasks_list": [
+      [
+        0.5,
+        0
+      ],
+      [
+        0,
+        0.5
+      ],
+      [
+        -0.5,
+        0
+      ],
+      [
+        0,
+        -0.5
+      ],
+      [
+        1.75,
+        0
+      ],
+      [
+        0,
+        1.75
+      ],
+      [
+        -1.75,
+        0
+      ],
+      [
+        0,
+        -1.75
+      ],
+      [
+        2.75,
+        0
+      ],
+      [
+        0,
+        2.75
+      ],
+      [
+        -2.75,
+        0
+      ],
+      [
+        0,
+        -2.75
+      ]
+    ],
+    "eval_tasks_list": [
+      [
+        1.75,
+        0
+      ],
+      [
+        0,
+        1.75
+      ],
+      [
+        -1.75,
+        0
+      ],
+      [
+        0,
+        -1.75
+      ]
+    ],
+    "expert": false,
+    "indistribution_train_tasks_list": [
+      [
+        0.5,
+        0
+      ],
+      [
+        0,
+        0.5
+      ],
+      [
+        -0.5,
+        0
+      ],
+      [
+        0,
+        -0.5
+      ],
+      [
+        2.75,
+        0
+      ],
+      [
+        0,
+        2.75
+      ],
+      [
+        -2.75,
+        0
+      ],
+      [
+        0,
+        -2.75
+      ]
+    ],
+    "num_train_tasks": 150,
+    "ood": "inter",
+    "use_cfrc": true,
+    "use_ref_task": 0
+  },
+  "exp_name": "exp1which_sac=sac_revised",
+  "latent_size": 10,
+  "n_eval_tasks": 4,
+  "n_indistribution_tasks": 8,
+  "n_test_tsne_tasks": 16,
+  "n_train_tasks": 150,
+  "n_train_tsne_tasks": 32,
+  "n_tsne_tasks": 12,
+  "net_size": 300,
+  "path_to_weights": null,
+  "seed": 1234,
+  "util_params": {
+    "base_log_dir": "output",
+    "debug": false,
+    "docker": false,
+    "gpu_id": 0,
+    "use_gpu": true
+  }
+}
