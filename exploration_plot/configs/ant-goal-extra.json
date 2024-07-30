@@ -1,0 +1,155 @@
+
+
+
+{
+    "env_name": "ant-goal",
+    "exp_name": "extra/exp6-beta2,컨택트X,cycleO,ganO(w,5),diric3,rateX,fakesampleRLO(bsize256,loss0.1),rscale1,c학습rl버퍼고정X",
+
+
+
+    "latent_size":10,
+
+    "seed": 1234,
+
+    "util_params":{
+        "use_gpu":true,
+        "gpu_id":6
+    },
+
+
+    "n_train_tasks": 150,
+    "n_eval_tasks": 8,
+    "n_indistribution_tasks":4,
+    "n_tsne_tasks": 12,
+    "env_params": {
+        "num_train_tasks": 150,
+        "eval_tasks_list": [[0.5, 0], [0, 0.5], [-0.5, 0], [0, -0.5], 
+                            [3.0, 0], [0, 3.0], [-3.0, 0], [0, -3.0]],
+        "indistribution_train_tasks_list": [[1.75, 0], [0, 1.75], [-1.75, 0], [0, -1.75]],
+        "TSNE_tasks_list": [[0.5,  0], [0, 0.5 ], [-0.5,  0], [0, -0.5 ],
+                            [1.75, 0], [0, 1.75], [-1.75, 0], [0, -1.75],
+                            [3.0,  0], [0, 3.0 ], [-3.0,  0], [0, -3.0 ]],
+        "use_cfrc": false,
+        "ood": "extra",
+        "use_ref_task": 0
+    },
+
+
+    "algo_params": {
+
+        "recon_coeff":200,        
+        "onpol_c_coeff":200,
+        "same_c_coeff":200,
+        "cycle_coeff":1,
+        
+        "algorithm":"ours", 
+        "ood": "extra",
+        "env_name":"ant-goal-extra",
+
+        "reward_scale": 1,
+
+        "sa_perm":false,
+        
+        "use_full_interpolation":true,
+        "num_dirichlet_tasks":3,
+        "num_fake_tasks":5, 
+        "beta": 2,
+
+        "fakesample_cycle":true,
+        "use_decrease_mask":false,
+        "decrease_rate":1,
+
+        "use_gan": true,
+        "gan_type" : "wgan",
+        "wgan_lambda": 5,
+        "gen_freq": 5,
+
+        "offpol_ctxt_sampling_buffer":"rl",
+        "make_prior_to_rl": true,
+        "use_context_buffer": 1,
+        "clear_enc_buffer":0,
+        "prior_enc_buffer_size": 20000,
+        "online_enc_buffer_size": 1,
+
+
+        "fakesample_rl_tran_batch_size": 256,
+        "use_inter_samples" : true,
+        "inter_update_coeff" : 0.1,
+
+        "sample_dist_coeff":1,
+        "r_dist_coeff":1,
+
+        "use_decoder_next_state":false,
+        "use_next_state_bisim":false,
+
+
+        "c_buffer_size":10000,
+        "c_kl_lambda":0.05,
+        "c_distri_vae_train_freq": 2,
+        "use_c_dist_clear":true,
+
+        "use_z_autoencoder":false,
+        
+
+
+
+
+        "soft_target_tau":0.005,
+        "policy_lr":0.0005,
+        "qf_lr":0.0005,
+        "vf_lr":0.0005,
+
+        "use_next_obs_in_context":false,
+
+        "num_iterations":10000,
+
+        "meta_batch": 16,
+
+
+
+
+        "z_dist_compute_method": "euclidian",
+
+        "same_task_loss_pow":1,
+
+
+
+        "pretrain_steps": 5001,
+        "num_meta_train_steps": 500,
+        "num_train_steps_per_itr": 4000,
+        "num_initial_steps": 2000,
+
+
+
+        "use_W": 0,
+        "target_enc_tau": 0.005,
+
+        "enc_q_recover_train": 0,
+        "use_z_contrastive": 0,
+        "use_q_contrastive": false,
+        "q_embed_size": 1,
+
+        "use_information_bottleneck" : 1,
+        "kl_lambda" : 0,
+
+        "num_tsne_evals": 30,
+        "tsne_plot_freq" : 20,
+        "tsne_perplexity" : [50, 50],
+
+        "num_tasks_sample":10,
+
+
+
+
+        "num_steps_prior": 800,
+        "num_steps_posterior": 0,
+        "num_extra_rl_steps_posterior": 600,
+        "num_evals": 1,
+        "num_steps_per_eval": 1000,
+        "num_exp_traj_eval": 4,
+
+        "batch_size": 256,
+        "embedding_batch_size": 128,
+        "embedding_mini_batch_size": 128
+    }
+}

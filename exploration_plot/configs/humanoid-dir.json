@@ -1,0 +1,127 @@
+
+
+
+{
+    "env_name": "humanoid-dir",
+    "exp_name": "humanoid-dir:exp6-done,fakesample_rl학습O,rpr학습O,evaltrj증가(1400),sample_dist*4,c_kl(0.05),rl버퍼로c학습,,",
+
+
+
+    "latent_size":10,
+
+    "seed": 1234,
+
+    "util_params":{
+        "use_gpu":true,
+        "gpu_id":6
+    },
+
+
+    "n_train_tasks": 4,
+    "n_eval_tasks": 4,
+    "n_indistribution_tasks":0,
+    "n_tsne_tasks": 8,
+    "env_params": {
+        "num_train_tasks": 4,
+        "eval_tasks_list": [],
+        "indistribution_train_tasks_list": [],
+        "TSNE_tasks_list": [],
+        "index_sorting": 0,
+        "linear_sorting":0,
+        "use_ref_task": 0
+    },
+
+
+    "algo_params": {
+
+        "fake_sample_rpr_train":true,
+        "num_rpr_train_tasks":4,
+        
+        "sample_dist_coeff":4,
+
+        "use_decoder_next_state":false,
+        "use_next_state_bisim":false,
+
+
+        "c_buffer_size":20000,
+        "c_kl_lambda":0.05,
+
+        "use_z_autoencoder":false,
+        "decrease_rate":1, 
+        
+
+        "fakesample_rl_tran_batch_size": 128,
+        "use_inter_samples" : 1,
+        "inter_update_coeff" : 1,
+        
+        "beta": 1,
+
+        "soft_target_tau":0.005,
+        "policy_lr":0.0005,
+        "qf_lr":0.0005,
+        "vf_lr":0.0005,
+
+        "use_next_obs_in_context":false,
+
+        "num_iterations":10000,
+
+        "meta_batch": 4,
+
+        "reward_scale": 1,
+
+
+
+        "env_name":"humanoid-dir",
+
+        "z_dist_compute_method": "euclidian",
+
+        "same_task_loss_pow":1,
+
+
+        "use_context_buffer": 1,
+        "clear_enc_buffer":0,
+        "prior_enc_buffer_size": 20000,
+        "online_enc_buffer_size": 1,
+
+        "pretrain_steps": 5001,
+
+        "wgan_lambda": 5,
+        "gen_freq": 5,
+
+        "use_W": 0,
+        "target_enc_tau": 0.005,
+
+        "enc_q_recover_train": 0,
+        "use_z_contrastive": 0,
+        "use_q_contrastive": 0,
+        "q_embed_size": 1,
+
+        "use_information_bottleneck" : 1,
+        "kl_lambda" : 0,
+
+        "num_tsne_evals": 30,
+        "tsne_plot_freq" : 20,
+        "tsne_perplexity" : [50, 50],
+
+        "num_tasks_sample":2,
+
+
+        "c_distri_vae_train_freq": 50,
+
+
+        "num_meta_train_steps": 1000,
+        "num_train_steps_per_itr": 1000,
+        "num_initial_steps": 2000,
+
+        "num_steps_prior": 800,
+        "num_steps_posterior": 0,
+        "num_extra_rl_steps_posterior": 600,
+        "num_evals": 1,
+        "num_steps_per_eval": 1400,
+        "num_exp_traj_eval": 4,
+
+        "batch_size": 256,
+        "embedding_batch_size": 128,
+        "embedding_mini_batch_size": 128
+    }
+}
