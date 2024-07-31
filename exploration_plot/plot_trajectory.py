@@ -259,7 +259,7 @@ def experiment(variant):
 
     """Start"""
     agent = MakeDeterministic(agent)
-    eval_tasks_indices = tasks[num_train:  num_train + num_test]
+    eval_tasks_indices = tasks[num_train:  num_train + num_test + num_indistribution]
     num_trajs = variant['algo_params']['num_exp_traj_eval'] + 1
     print("num_trajs", num_trajs)  # 3
     all_rets = []
@@ -291,50 +291,14 @@ def experiment(variant):
         all_rets.append([sum(p['rewards']) for p in paths])
         trajs.append(task_traj)
 
-    alphas = [0.4, 0.4, 1.0, 1]
-    line_styles = [':', '-.', '--', '-']
-    colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'W']
-    task_label = ["[1.75, 0]", "[0, 1.75]", "[-1.75, 0]", "[0, -1.75]"]
-    episode_labels = ["ep1", "ep2", "ep3", "ep4"]
-
-    for i, task_traj in enumerate(trajs):
-        plt.figure(figsize=(4, 4))
-        plt.style.use('seaborn-v0_8-dark')
-        plt.xlim(-3, 3)
-        plt.ylim(-3, 3)
-        plt.title(task_label[i])
-        for j, epi_traj in enumerate(task_traj):
-            if j < variant['algo_params']['num_exp_traj_eval']:
-                plt.plot(epi_traj[:, 0], epi_traj[:, 1],
-                         linewidth=1.0,
-                         label=episode_labels[j],
-                         alpha=alphas[j],
-                         color='black',
-                         linestyle=line_styles[j])
-                plt.scatter(epi_traj[-1, 0], epi_traj[-1, 1], s=10, color="blue")
-            else:
-                plt.plot(epi_traj[:, 0], epi_traj[:, 1],
-                         linewidth=2.0,
-                         label=episode_labels[j],
-                         alpha=alphas[j],
-                         color='red',
-                         linestyle=line_styles[j])
-                plt.scatter(epi_traj[-1, 0], epi_traj[-1, 1], s=10, color="red")
-        plt.legend()
-        plt.tight_layout()
-        beta = str(variant['algo_params']['beta'])
-        randcstep = str(variant['algo_params']['dirichlet_sample_freq_for_exploration'])
-        plt.savefig(pretrained_path + f'/{eval_tasks_indices[i]}' + ',Zfrq' + randcstep + "step," + "beta" + beta + '.png')
-
-    # compute average returns across tasks
-    n = min([len(a) for a in all_rets])
-    rets = [a[:n] for a in all_rets]
-    rets = np.mean(np.stack(rets), axis=0)
-    for i, ret in enumerate(rets):
-        print('trajectory {}, avg return: {} \n'.format(i, ret))
-
-
-
+    tasks = []
+    for task_dict in total_tasks_dict_list[num_train:num_train+num_test+num_indistribution]:
+        tasks.append(task_dict['goal'])
+    task_traj = {
+        'task': tasks,
+        'traj': trajs,
+    }
+    np.save(f'{pretrained_path}/beta{variant["algo_params"]["beta"]}.npy', task_traj)
 
 
 def deep_update_dict(fr, to):
